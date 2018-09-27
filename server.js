@@ -11,7 +11,7 @@ const db = knex(dbConfig);
 const cors = require('cors'); 
 const corsOptions = {
     credentials: true,
-    origin: "https://romantic-joliot-d0c9c6.netlify.com/"
+    origin: "https://romantic-joliot-d0c9c6.netlify.com"
   };
 server.use(cors(corsOptions)); 
 
