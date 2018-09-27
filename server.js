@@ -9,7 +9,11 @@ const dbConfig = require("./knexfile")[dbEngine];
 const db = knex(dbConfig);
 
 const cors = require('cors'); 
-server.use(cors()); 
+const corsOptions = {
+    credentials: true,
+    origin: "https://romantic-joliot-d0c9c6.netlify.com/"
+  };
+server.use(cors(corsOptions)); 
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
