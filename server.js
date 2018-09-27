@@ -54,6 +54,20 @@ function protected(req, res, next) {
     }
 }
 
+//===============TEST ENDPOINT==============//
+
+
+server.get('/test', (req, res) => {
+    db('notes')
+        .then(notes => {
+            res.status(201).json({notes});
+        })
+        .catch(err => {
+            res.status(500).json({err: "Failed to get notes from notes table."})
+        })
+})
+
+
 //===============ENDPOINTS==============//
 
 server.post("/register", (req, res) => {
