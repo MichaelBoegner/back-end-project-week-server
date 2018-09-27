@@ -57,10 +57,11 @@ function protected(req, res, next) {
 //===============TEST ENDPOINT==============//
 
 
-server.get('/test', (req, res) => {
+server.get('/test', (req, res) => { console.log('notes', db('notes'))
     db('notes')
         .then(notes => {
             res.status(201).json({notes});
+            console.log('running', res.status(201).json({notes}))
         })
         .catch(err => {
             res.status(500).json({err: "Failed to get notes from notes table."})
