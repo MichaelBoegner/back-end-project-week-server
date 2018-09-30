@@ -123,7 +123,7 @@ server.post("/login", (req, res) => {
 })
 
 
-server.get('/notes', protected, (req, res) => {
+server.get('/notes', (req, res) => {
     db('notes')
         .then(notes => {
             res.status(201).json({notes});
