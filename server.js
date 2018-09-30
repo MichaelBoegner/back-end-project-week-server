@@ -9,17 +9,12 @@ const dbConfig = require("./knexfile")[dbEngine];
 const db = knex(dbConfig);
 
 const cors = require('cors'); 
-const corsOptions = {
-    credentials: true,
-    origin: "https://romantic-joliot-d0c9c6.netlify.com"
-  };
-server.use(cors(corsOptions)); 
+server.use(cors()); 
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 server.get('/', (req, res) => {
-    res.send('We are a go Mr. Snowblow!'); 
     db('notes')
         .then(notes => {
             res.status(201).json({notes});
